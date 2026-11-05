@@ -1,20 +1,35 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { ScrollView, StyleSheet, Text } from 'react-native';
+import { NotasCard } from './src/app/components/Notas/NotasCard';
+import { MoodsCard } from './src/app/components/Moods/MoodsCard';
+import { Colors } from './src/app/consants/theme';
+import TituloApp from './src/app/consants/TituloApp';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ScrollView
+      style={styles.screen}
+      contentContainerStyle={styles.container}
+    >
+      <StatusBar style="light" />
+      <TituloApp />
+      <MoodsCard />
+      <NotasCard />
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  screen: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: Colors.background,
+  },
+  container: {
+    flexGrow: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 24,
   },
 });
